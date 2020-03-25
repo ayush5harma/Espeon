@@ -1,6 +1,5 @@
 import numpy as np
 
-import pwnagotchi.mesh.wifi as wifi
 
 MAX_LOOP_DURATION = 1024
 
