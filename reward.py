@@ -5,7 +5,7 @@ encounters = max(state['num_deauths'] + state['num_associations'], state['num_ha
 channels = wifi.Channels
 
 # handshakes
-h = state['num_handshakes'] / encounters
+h = state['handshakes'] / encounters
 # small positive rewards the more active loops we have
 a = .2 * (state['active'] / loops)
 # ai should keep hopping on the widest channel spectrum
