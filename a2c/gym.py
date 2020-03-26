@@ -62,23 +62,19 @@ class Environment(gym.Env):
     #- It is parametrized by passing an array of positive integers specifying number of actions for each discrete action space in this case p~params variable
         self.observation_space = spaces.Box(low=0, high=1, shape=self._observation_shape, dtype=np.float32)
         self.reward_range = reward.range 
-
  @staticmethod
     def policy_size():
-        return len(list(p for p in Environment.params if p.trainable))
+        return len(list(p for p in Environment.params if p.trainable)) # returns length of parameters which are in environment and are set to change by train.py 
 
     @staticmethod
     #ai policy is set during training and is passed to the environment
+
     def policy_to_params(policy):
         num = len(policy)
         params = {}
-
-        assert len(Environment.params) == num
-
         channels = []
-
         for i in range(num):
-            param = Environment.params[i]
+            param = Environment.params[i]      
 
             if '_channel' not in param.name:
                 params[param.name] = param.to_param_value(policy[i])
