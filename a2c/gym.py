@@ -22,9 +22,9 @@ class Environment(gym.Env):
         Parameter('min_recon_time', min_value=1, max_value=30),
         Parameter('max_interactions', min_value=1, max_value=25),
         Parameter('max_misses_for_recon', min_value=3, max_value=10),
-        Parameter('excited_num_epochs', min_value=5, max_value=30),
-        Parameter('bored_num_epochs', min_value=5, max_value=30),
-        Parameter('sad_num_epochs', min_value=5, max_value=30),
+        Parameter('excited_num_loops', min_value=5, max_value=30),
+        Parameter('bored_num_loops', min_value=5, max_value=30),
+        Parameter('sad_num_loops', min_value=5, max_value=30),
     ]
 
     #https://hackernoon.com/intuitive-rl-intro-to-advantage-actor-critic-a2c-4ff545978752
