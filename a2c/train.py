@@ -1,8 +1,10 @@
 import logging
+import random
+import threading
+import os
+import json
 
-
-
-def on_loop(self, data, training):
+    def on_loop(self, data, training):
         best_r = False
         worst_r = False
         with self._lock:
@@ -42,7 +44,7 @@ def set_training(self, training, for_loops=0):
     def on_ai_step(self):
         logging.info("[ai] saving model to %s ..." % self._nn_path)
     def on_ai_step(self):
-        self._model.env.render()
+        self._model.env.render() # gym environment renderer is called.
 
     
     def on_ai_policy(self, new_params):
@@ -60,5 +62,45 @@ def set_training(self, training, for_loops=0):
         self.run('set wifi.ap.ttl %d' % self._config['personality']['ap_ttl'])
         self.run('set wifi.sta.ttl %d' % self._config['personality']['sta_ttl'])
         self.run('set wifi.rssi.min %d' % self._config['personality']['min_rssi'])
+        
+    def on_ai_ready(self):
+        
+
+    def on_ai_best_reward(self, r):
+        logging.info("[ai] best reward so far: %s" % r)
+        
+
+    def on_ai_worst_reward(self, r):
+        logging.info("[ai] worst reward so far: %s" % r)
+    
+    def _ai_worker(self):
+        self._model = ai.load(self._config, self, self._loop)
+
+        if self._model:
+            self.on_ai_ready()
+
+            loops_per_episode = self._config['ai']['loops_per_episode']
+
+            obs = None
+            while True:
+                self._model.env.render()
+                # wheathe to renter in training mode or not
+                if random.random() > self._config['ai']['laziness']:
+                    logging.info("[ai] learning for %d loops ..." % loops_per_episode)
+                    try:
+                        self.set_training(True, loops_per_episode)
+                        self._model.learn(total_timesteps=loops_per_episode, callback=self.on_ai_training_step)
+                    except Exception as e:
+                        logging.exception("[ai] error while training")
+                    finally:
+                        self.set_training(False)
+                        obs = self._model.env.reset()
+          # init the first time
+                elif obs is None:
+                    obs = self._model.env.reset()
+
+                # run the inference
+                action, _ = self._model.predict(obs)
+                obs, _, _, _ = self._model.env.step(action)
 
 
