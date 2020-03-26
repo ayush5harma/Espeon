@@ -42,4 +42,36 @@ class Environment(gym.Env):
             'state_v': None
         }
 
-   
+   self.action_space = spaces.MultiDiscrete([p.space_size() for p in Environment.params if p.trainable])
+        self.observation_space = spaces.Box(low=0, high=1, shape=self._observation_shape, dtype=np.float32)
+        self.reward_range = reward.range
+
+ @staticmethod
+    def policy_size():
+        return len(list(p for p in Environment.params if p.trainable))
+
+    @staticmethod
+    def policy_to_params(policy):
+        num = len(policy)
+        params = {}
+
+        assert len(Environment.params) == num
+
+        channels = []
+
+        for i in range(num):
+            param = Environment.params[i]
+
+            if '_channel' not in param.name:
+                params[param.name] = param.to_param_value(policy[i])
+            else:
+                has_chan = param.to_param_value(policy[i])
+                # print("%s policy:%s bool:%s" % (param.name, policy[i], has_chan))
+                chan = param.meta
+                if has_chan:
+                    channels.append(chan)
+
+        params['channels'] = channels
+
+        return params
+
