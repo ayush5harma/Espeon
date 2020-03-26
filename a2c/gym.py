@@ -6,7 +6,7 @@ import numpy as np
 import a2c.featurizer as featurizer
 import a2c.reward as reward
 from a2c.parameter import Parameter
-
+#https://towardsdatascience.com/creating-a-custom-openai-gym-environment-for-stock-trading-be532be3910e
 
 class Environment(gym.Env):
     metadata = {'render.modes': ['human']}
@@ -41,7 +41,8 @@ class Environment(gym.Env):
             'state': None,
             'state_v': None
         }
-
+## Define action and observation space
+## They must be gym.spaces objects
    self.action_space = spaces.MultiDiscrete([p.space_size() for p in Environment.params if p.trainable])
         self.observation_space = spaces.Box(low=0, high=1, shape=self._observation_shape, dtype=np.float32)
         self.reward_range = reward.range
