@@ -1,4 +1,4 @@
-# Espeon
+# Espeon -Raspberry pi pokemon that gamifies WiFi Hacking
 ## **Overview** :
 
 We decided to create something new from the components we had at hand; the basis of this pet hacker is basically a Raspberry Pi  single board device.  
