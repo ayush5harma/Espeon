@@ -74,4 +74,30 @@ class Environment(gym.Env):
         params['channels'] = channels
 
         return params
+def _next_loop(self):
+        logging.debug("[ai] waiting for loop to finish ...")
+        return self._loop.wait_for_loop_data()
 
+    def _apply_policy(self, policy):
+        new_params = Environment.policy_to_params(policy)
+        self.last['policy'] = policy
+        self.last['params'] = new_params
+        self._agent.on_ai_policy(new_params)
+
+    def step(self, policy):
+        # create the parameters from the policy and update
+        # update them in the algorithm
+        self._apply_policy(policy)
+        self._loop_num += 1
+
+        # wait for the algorithm to run with the new parameters
+        state = self._next_loop()
+
+        self.last['reward'] = state['reward']
+        self.last['state'] = state
+        self.last['state_v'] = featurizer.featurize(state, self._loop_num)
+
+        self._agent.on_ai_step()
+
+        return self.last['state_v'], self.last['reward'], not self._agent.is_training(), {}
+    
