@@ -1,24 +1,20 @@
-LOOK_R = '( ⚆_⚆)'
-LOOK_L = '(☉_☉ )'
-LOOK_R_HAPPY = '( ◕‿◕)'
-LOOK_L_HAPPY = '(◕‿◕ )'
-SLEEP = '(⇀‿‿↼)'
-SLEEP2 = '(≖‿‿≖)'
-AWAKE = '(◕‿‿◕)'
-BORED = '(-__-)'
-INTENSE = '(°▃▃°)'
+LOOK_R = '( )'
+LOOK_L = '( )'
+LOOK_R_HAPPY = '( )'
+LOOK_L_HAPPY = '()'
+SLEEP = '()'
+AWAKE = '()'
+BORED = '()'
+INTENSE = '()'  #when eating handshake
 COOL = '(⌐■_■)'
 HAPPY = '(•‿‿•)'
-GRATEFUL = '(^‿‿^)'
 EXCITED = '(ᵔ◡◡ᵔ)'
 MOTIVATED = '(☼‿‿☼)'
-DEMOTIVATED = '(≖__≖)'
-SMART = '(✜‿‿✜)'
+DEMOTIVATED = '()'
+SMART = '()'
 LONELY = '(ಠ_ಠ)'
 SAD = '((ಥ﹏ಥ))'
-ANGRY = "(-_-')"
-BROKEN = '(☓‿‿☓)'
-DEBUG = '(#__#)'
+ANGRY = "()"
 
 
 def load_from_config(config):
