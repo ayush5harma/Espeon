@@ -3,9 +3,9 @@ import gym
 from gym import spaces
 import numpy as np
 
-import featurizer as featurizer
-import reward as reward
-from parameter import Parameter
+import a2c.featurizer as featurizer
+import a2c.reward as reward
+from a2c.parameter import Parameter
 
 
 class Environment(gym.Env):
