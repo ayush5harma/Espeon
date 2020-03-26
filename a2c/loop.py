@@ -2,7 +2,7 @@ import time
 import threading
 import logging
 
-from reward import RewardFunction
+from a2c.reward import RewardFunction
 
 
 class Loop(object):
