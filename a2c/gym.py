@@ -9,7 +9,7 @@ from a2c.parameter import Parameter
 
 
 class Environment(gym.Env):
-    metadata = {'render.modes': ['human']}
+    metadata = {'render.modes': ['human']} 
     params = [
         Parameter('min_rssi', min_value=-200, max_value=-50),
         Parameter('ap_ttl', min_value=30, max_value=600),
