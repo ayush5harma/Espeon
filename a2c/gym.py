@@ -26,6 +26,12 @@ class Environment(gym.Env):
         Parameter('bored_num_loops', min_value=5, max_value=30),
         Parameter('sad_num_loops', min_value=5, max_value=30),
     ]
+    def init(self, agent, loop):
+        super(Environment, self).init()
+        self._agent = agent
+        self._loop = loop
+        self._loop_num = 0
+        self._loop_render = None
 
     #https://hackernoon.com/intuitive-rl-intro-to-advantage-actor-critic-a2c-4ff545978752
     Environment.params += [
