@@ -108,3 +108,29 @@ def _next_loop(self):
         self.last['state'] = state
         self.last['state_v'] = featurizer.featurize(state, 1)
         return self.last['state_v']
+    def _render_histogram(self, hist):
+        for ch in range(self._histogram_size):
+            if hist[ch]:
+                logging.info("      CH %d: %s" % (ch + 1, hist[ch]))
+
+    def render(self, mode='human', close=False, force=False):
+        # when using a vectorialized environment, render gets called twice
+        # avoid rendering the same data
+        if self._last_render == self._loop_num:
+            return
+
+        if not self._agent.is_training() and not force:
+            return
+
+        self._last_render = self._loop_num
+
+        logging.info("[ai] --- training loop %d/%d ---" % (self._loop_num, self._agent.training_loops()))
+        logging.info("[ai] REWARD: %f" % self.last['reward'])
+
+        logging.debug("[ai] policy: %s" % ', '.join("%s:%s" % (name, value) for name, value in self.last['params'].items()))
+
+        logging.info("[ai] observation:")
+        for name, value in self.last['state'].items():
+            if 'histogram' in name:
+                logging.info("    %s" % name.replace('_histogram', ''))
+                self._render_histogram(value)
