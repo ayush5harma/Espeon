@@ -101,3 +101,10 @@ def _next_loop(self):
 
         return self.last['state_v'], self.last['reward'], not self._agent.is_training(), {}
     
+    def reset(self):
+        # logging.info("[ai] resetting environment ...")
+        self._loop_num = 0
+        state = self._next_loop()
+        self.last['state'] = state
+        self.last['state_v'] = featurizer.featurize(state, 1)
+        return self.last['state_v']
