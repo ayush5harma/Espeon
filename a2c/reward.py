@@ -3,7 +3,7 @@
 loops = n + 1e-20 # 1e-20 is added to avoid a division by 0 //10 to the power -20 
 encounters = max(state['num_deauths'] + state['num_associations'], state['num_handshakes']) + 1e-20
 channels = wifi.Channels
-
+range = (-.7, 1.02)   # (worst case reward,best case reward)
 # handshakes
 h = state['handshakes'] / encounters
 # small positive rewards the more active loops we have
