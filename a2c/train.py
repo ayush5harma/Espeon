@@ -1,8 +1,6 @@
 import logging
 import random
 import threading
-import os
-import json
 
     def on_loop(self, data, training):
         best_r = False
