@@ -1,5 +1,41 @@
 # Espeon -Raspberry pi pokemon that gamifies WiFi Hacking  
-A Deep Reinforcement Learning Minor Project
+
+```
+    ....                                    .....
+           .+?77Gggg,                            .gggyTTTAe
+          .dM@.` ``?TM8...                 ...WMM8!!!+++WM@
+         .MIdNm,..`.``?7TAx              .uZT=!^^^:.qNMNId@
+           dMMNe,....^^^:+dBC++vHMn....JMBI:^^^:J+jMMMMMnd9
+           dRJMMNm.:^^:?+!```...^:?74Hf!^^^^:.?qMMMMMM#zMP
+            ?BjMMMNe,.+?``..J,^^:^^JJWC```..JjMMMMMMMMB&T=
+             jkVMMMNI+l  jk7WQs:^^:dM:..`..qNMMMMMMMMEJH:     .jQ,
+               TSdMMMR.` ?SmQH$^:^^::^..?jMMMMMMMMMMkZ9`    .?! `Tn,
+                `jWMMHx ```77:^:^:.....:jMMMMMMMMMUWC!      dl. .^d@.
+                  .MMH8e. .^^:``.JgWWMI^^?MMMMMngd9!         dK^^::jN:
+                 .kCOOdN:`^^:^..jMMNkC:^?z777CWC?!   .jQQo.  `jm:^^jM:
+                dK:^^dMB:.^:^^?vWHY+::?j&.^^^:?W$   J2` `?S.. `9A+^:?Mr
+               qZ1...dNs+dkz+^:^^:..JqkVWmc:^^`?Xp  dB....?jQ; .MI^^?Ml.
+               MmZY9Gc7Y=ux+.^:J&gUMM0rrXM3u+^.jZY   `5A+^:?Tn,.TG+:^?dM
+               ??`  ``   `!`XNNHUU0rrrOvdN:`jR+M$      ?dy^^?db. dK^:?dM
+                             d#zrrrrZz:^?8a. .T!        ?Sx.^:d#`dK^^?dM
+                            .dD`!!!!!^^:^?Mr             JB+.^?jWVC^:?dM
+                           .MI^^^^^:^:^^:?Tn,             ,Ml^^??`.:?&VY
+                           .MI.^:^:^^:^:^^?db.             ?d2^:``.^?Mr
+                          .JVUz:^:?+`^^:^^:^?5+.            7Xx+...JdY!
+                          J#ozz...dR^.`^:^^:^`?Xo..          d#C..^jN:
+                          JN0rW#!?dK.``:^:^^:^:^?91i,       .Z= ^^jyY`
+                          ?MkwZWHodK .:^^?ux^:^^:^`?Xn.    .M%...?dE
+                           .MRrrdMM@^:^^:?MRjax+^:^^:d#..+J9::^:?MP
+                           .HWyrwXM@^^:^jMM9?`` ``:^^?UkC?!^^^.JW:`
+                             dHrrrH@:^^:JMk!```` .^^:^?Qc^:?ggZ=`
+                              dNwrH@^:^dMNkc.  .^:^:^^?MMMMB:``
+                             JZY+1W@:^:dMMMNe+.^^::^:jsY!
+                             dHAgNr..?dMMMG&&.a&JJHMM$`
+                              ?"""Xgmmv!  ?""""""=
+                                   ```
+```
+A Deep Reinforcement Learning Minor Project  
+
 ## **Overview** :
 
 We decided to create something new from the components we had at hand; the basis of this pet hacker is basically a Raspberry Pi  single board device.  
