@@ -4,7 +4,7 @@ import re
 import logging
 import _thread
 
-from ui.web.server import Server
+#from ui.web.server import Server //web-ui
 from automata import Automata
 from bettercap import Client
 from a2c.train import AsyncTrainer
